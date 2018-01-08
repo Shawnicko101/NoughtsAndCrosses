@@ -1,3 +1,9 @@
-﻿     Creating library E:\GitHub\NoughtsAndCrosses\ConsoleApplication1\x64\Debug\ConsoleApplication1.lib and object E:\GitHub\NoughtsAndCrosses\ConsoleApplication1\x64\Debug\ConsoleApplication1.exp
+﻿  Source.cpp
+e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(49): warning C4473: 'printf' : not enough arguments passed for format string
+  e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(49): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(49): note: the missing variadic argument 2 is required by format string '%s'
+e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(54): warning C4473: 'printf' : not enough arguments passed for format string
+  e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(54): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  e:\github\noughtsandcrosses\consoleapplication1\consoleapplication1\source.cpp(54): note: the missing variadic argument 2 is required by format string '%s'
   ConsoleApplication1.vcxproj -> E:\GitHub\NoughtsAndCrosses\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
   ConsoleApplication1.vcxproj -> E:\GitHub\NoughtsAndCrosses\ConsoleApplication1\x64\Debug\ConsoleApplication1.pdb (Full PDB)

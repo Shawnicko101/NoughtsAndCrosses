@@ -1,21 +1,82 @@
+/* Noughts and Crosses Game for C++
+Shawn Hickens S16151719
+Lecturer: Carlo Harvey
+
+
+
+
+
+*/
+
+//Inclusion of SDL Libraries
 #include <iostream>
-#include "SDL.h"
+#include <SDL.h>
+#include <stdio.h>
 
-
+//Defining SDL main function
 int main(int argc, char *argv[]) {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_Window *window = SDL_CreateWindow("NoughtsAndCrosses", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
+	
+	//Creating an object for the window
+	SDL_Window* window = NULL;
+	//Creating a surface for rendering the game
+	SDL_Surface* renderFrame = NULL;
 
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	//Surfaces for graphics which are loaded
+	SDL_Surface* image_hello = NULL;
+	SDL_Surface* image_world = NULL;
 
-	SDL_RenderClear(renderer);
+	//Setting up the SDL Window
+	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+		printf("SDL could not be initialized! SDL_Error: %s\n", SDL_GetError());
+		return 0;
 
-	SDL_RenderPresent(renderer);
+	}
 
-	SDL_Delay(3000);
+	window = SDL_CreateWindow("Noughts and Crosses", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
 
+	if (window == NULL) {
+		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+		return 0;
+	}
+
+	renderFrame = SDL_GetWindowSurface(window);
+	
+	if (renderFrame == NULL) {
+		printf("Render frame could not be created! SDL_Error: %s\n", SDL_GetError());
+	}
+	image_hello = SDL_LoadBMP("hello.bmp");
+	if (image_hello == NULL) {
+		printf("Unable to load image %s! SDL Error: %s\n", SDL_GetError());
+		return 0;
+	}
+	image_world = SDL_LoadBMP("world.bmp");
+	if (image_world == NULL) {
+		printf("Unable to load image %s! SDL Error: %s\n", SDL_GetError());
+		return 0;
+	}
+
+	while (true) {
+		//Clear screen to blue
+		SDL_FillRect(renderFrame, NULL, 0x6495ed);
+		//Apply graphic to the frame
+		SDL_BlitSurface(image_hello, NULL, renderFrame, NULL);
+		//Apply world graphic to screen
+		SDL_Rect rect;
+		rect.x = 0;
+		rect.y = 200;
+		rect.w = 640;
+		rect.h = 169;
+
+		SDL_BlitSurface(image_world, NULL, renderFrame, &rect);
+		SDL_UpdateWindowSurface(window);
+
+		SDL_Delay(5);
+
+		
+	}
+	
+
+	
 
 	return 0;
 }
-
